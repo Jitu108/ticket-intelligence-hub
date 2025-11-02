@@ -29,10 +29,9 @@ Ticket Intelligence Hub automates this by combining:
 | **Database** | SQL Server | Store tickets, comments, iterations, and metrics |
 | **Backend Logic** | Python 3.11+ | Core business logic and analytics engine |
 | **ORM/DB Access** | pyodbc / SQLAlchemy | Database interaction |
-| **LLM Engine** | OpenAI / Ollama | Summarization, classification, and insights |
+| **LLM Engine** | OpenAI / Anthropic / Google / Deepseek | Summarization, classification, and insights |
 | **Vector Indexing** | FAISS | Semantic similarity and duplicate detection |
 | **Frontend/UI** | Gradio | Web-based dashboard and analytics UI |
-| **Deployment** | Docker / Docker Compose | Containerized deployment for reproducibility |
 
 ---
 
@@ -43,34 +42,31 @@ ticket_intelligence_hub/
 ├── requirements.txt
 ├── docker-compose.yml
 ├── .env.example
-│
-├── init.py
-├── config/
-│   └── settings.py
+├── __init__.py
+├── config.py
 ├── infrastructure/
+│   ├── __init__.py
 │   ├── db.py
-│   └── vector_store.py
+│   ├── embedding.py
+│   ├── llm.py
+│   ├── mappers.py
+│   ├── repository.py
 ├── domain/
-│   ├── models.py
-│   ├── entities/
-│   │   ├── ticket.py
-│   │   ├── iteration.py
-│   │   └── developer.py
-├── services/
-│   ├── ticket_service.py
-│   ├── analytics_service.py
-│   └── llm_service.py
+│   ├── __init__.py
+│   ├── entities.py
+│   ├── events.py
+│   ├── value_objects.py
+├── application/
+│   ├── __init__.py
+│   ├── dtos.py
+│   ├── notifications.py
+│   ├── pipelines.py
+│   ├── rules.py
+│   ├── services.py
 ├── ui/
+│   └── __init__.py
 │   └── app.py
-├── utils/
-│   └── logger.py
-├── main.py
-│
-└── sql/
-├── schema.sql
-├── seed_data.sql
-└── stored_procs/
-└── get_ticket_metrics.sql
+
 ```
 ---
 
@@ -78,22 +74,6 @@ ticket_intelligence_hub/
 
 ### 🧠 AI-Driven Insights
 - **Automatic ticket summarization** using LLMs (OpenAI / Ollama)
-- **Root cause analysis** via agentic reasoning
-- **Duplicate ticket detection** using vector embeddings (FAISS)
-- **Effort estimation** and T-shirt sizing (S/M/L/XL)
-
-### 📊 Sprint & Effort Analytics
-- Tracks effort, iterations, scope creep, and rework
-- Sprint-to-sprint comparison dashboard
-- Developer and team performance summaries
-
-### 🔎 Smart Querying
-- Semantic search: “Show me all tickets delayed due to API timeout”
-- Context-based recommendations for similar issues
-
-### 🧱 Extensible Architecture
-- Plug-and-play data connectors (e.g., Jira, GitHub, or CSV imports)
-- Modular design for adding new AI or data modules
 
 ---
 
@@ -101,7 +81,7 @@ ticket_intelligence_hub/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/yourusername/ticket-intelligence-hub.git
+git clone https://github.com/jitu108/ticket-intelligence-hub.git
 cd ticket-intelligence-hub
 ```
 
@@ -116,18 +96,7 @@ SQLSERVER_CONN=Server=localhost,1433;Database=ticket_hub;User Id=sa;Password=You
 OPENAI_API_KEY=sk-xxxx
 ```
 
-### 3️⃣ Setup database
-```bash
-docker-compose up -d sqlserver
-sleep 10
-sqlcmd -S localhost,1433 -U sa -P YourStrong@Pass123 -i sql/schema.sql
-sqlcmd -S localhost,1433 -U sa -P YourStrong@Pass123 -i sql/seed_data.sql
-```
 
-### 4️⃣ Install dependencies
-```bash
-pip install -r requirements.txt
-```
 
 ### 5️⃣ Run the application
 ```bash
@@ -141,39 +110,14 @@ Access the app at [http://localhost:7860](http://localhost:7860)
 ## 🧠 LLM Workflow
 
 ```text
-Ticket → LLM Summarizer → Embedding Vectorizer → FAISS Index
-           ↓
-   AI Classifier → Category / RCA / Priority
+Ticket → LLM Summarizer → Embedding Vectorizer 
            ↓
    Insights Dashboard (Gradio)
 ```
 
-- **Embedding Strategy:** OpenAI + Local (Fallback)
-- **Prompt Templates:** Context-aware summarization and RCA generation
-- **FAISS Index:** Used for semantic search and duplicate detection
-
----
-
-## 📦 Docker Deployment
-
-```bash
-docker-compose up --build
-```
-
-This launches:
-- `sqlserver` (database)
-- `tih-app` (Python/Gradio)
-- `vector-store` (optional FAISS container)
-
----
-
-## 🧭 Roadmap
-
-- [ ] Integrate Jira / GitHub connectors  
-- [ ] Add multi-tenant capability (PlanId, TeamId)  
-- [ ] Include automated RCA scoring  
-- [ ] Introduce Slack/Email notifications  
-- [ ] Add dashboard filters by project, module, or sprint  
+- **Embedding Strategy:** OpenAI
+- **Prompt Templates:** Context-aware summarization
+- **FAISS Index:** Used for semantic search
 
 ---
 
