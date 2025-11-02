@@ -1,6 +1,7 @@
-# ticket-intelligence-hub
+<!--# ticket-intelligence-hub
 
 # python -m ticket_hub.ui.app
+-->
 
 # 🎫 Ticket Intelligence Hub
 
