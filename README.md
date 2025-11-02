@@ -3,13 +3,13 @@
 # python -m ticket_hub.ui.app
 -->
 
-# 🎫 Ticket Intelligence Hub
+# Ticket Intelligence Hub
 
 **Ticket Intelligence Hub (TIH)** is an **AI-powered support analytics platform** that consolidates helpdesk, engineering, and QA tickets from multiple sources, analyzes them using **LLM-based contextual intelligence**, and provides insights into **patterns, prioritization, and efficiency improvement** across sprints or releases.
 
 ---
 
-## 🚀 Overview
+## Overview
 
 Modern product teams manage thousands of tickets across Jira, GitHub, Zendesk, or internal tools. Manual triage, duplicate detection, and root-cause identification often consume hours.  
 Ticket Intelligence Hub automates this by combining:
@@ -22,7 +22,7 @@ Ticket Intelligence Hub automates this by combining:
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Layer | Technology | Purpose |
 |-------|-------------|----------|
@@ -35,7 +35,7 @@ Ticket Intelligence Hub automates this by combining:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 ```
 ticket_intelligence_hub/
 ├── README.md
@@ -70,14 +70,14 @@ ticket_intelligence_hub/
 ```
 ---
 
-## ⚙️ Features
+## Features
 
-### 🧠 AI-Driven Insights
+### AI-Driven Insights
 - **Automatic ticket summarization** using LLMs (OpenAI / Ollama)
 
 ---
 
-## 🧰 Setup Instructions
+## Setup Instructions
 
 ### 1️⃣ Clone the repository
 ```bash
@@ -121,7 +121,7 @@ Ticket → LLM Summarizer → Embedding Vectorizer
 
 ---
 
-## 🧑‍💻 Contributing
+## Contributing
 
 We welcome contributions!  
 1. Fork the repo  
