@@ -5,14 +5,14 @@
 
 # Ticket Intelligence Hub
 
-**Ticket Intelligence Hub (TIH)** is an **AI-powered support analytics platform** that consolidates helpdesk, engineering, and QA tickets from multiple sources, analyzes them using **LLM-based contextual intelligence**, and provides insights into **patterns, prioritization, and efficiency improvement** across sprints or releases.
+**Ticket Intelligence Hub (TIH)** is an **AI-powered support analytics platform** that could consolidate helpdesk, engineering, and QA tickets from multiple sources, analyzes them using **LLM-based contextual intelligence**, and provides insights into **patterns, prioritization, and efficiency improvement** across sprints or releases. This can be extended in future to be full-fledged and deployable.
 
 ---
 
 ## Overview
 
 Modern product teams manage thousands of tickets across Jira, GitHub, Zendesk, or internal tools. Manual triage, duplicate detection, and root-cause identification often consume hours.  
-Ticket Intelligence Hub automates this by combining:
+Ticket Intelligence Hub is a POC to automate this by combining:
 
 - **Data ingestion** (SQL Server + APIs)
 - **Natural Language Understanding (LLM)**
