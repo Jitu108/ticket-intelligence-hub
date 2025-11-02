@@ -37,7 +37,6 @@ Ticket Intelligence Hub automates this by combining:
 ---
 
 ## 📁 Project Structure
-
 ```
 ticket_intelligence_hub/
 ├── README.md
@@ -45,36 +44,34 @@ ticket_intelligence_hub/
 ├── docker-compose.yml
 ├── .env.example
 │
-├── ticket_hub/
-│   ├── __init__.py
-│   ├── config/
-│   │   └── settings.py
-│   ├── infrastructure/
-│   │   ├── db.py
-│   │   └── vector_store.py
-│   ├── domain/
-│   │   ├── models.py
-│   │   ├── entities/
-│   │   │   ├── ticket.py
-│   │   │   ├── iteration.py
-│   │   │   └── developer.py
-│   ├── services/
-│   │   ├── ticket_service.py
-│   │   ├── analytics_service.py
-│   │   └── llm_service.py
-│   ├── ui/
-│   │   └── app.py
-│   ├── utils/
-│   │   └── logger.py
-│   └── main.py
+├── init.py
+├── config/
+│   └── settings.py
+├── infrastructure/
+│   ├── db.py
+│   └── vector_store.py
+├── domain/
+│   ├── models.py
+│   ├── entities/
+│   │   ├── ticket.py
+│   │   ├── iteration.py
+│   │   └── developer.py
+├── services/
+│   ├── ticket_service.py
+│   ├── analytics_service.py
+│   └── llm_service.py
+├── ui/
+│   └── app.py
+├── utils/
+│   └── logger.py
+├── main.py
 │
 └── sql/
-    ├── schema.sql
-    ├── seed_data.sql
-    └── stored_procs/
-        └── get_ticket_metrics.sql
+├── schema.sql
+├── seed_data.sql
+└── stored_procs/
+└── get_ticket_metrics.sql
 ```
-
 ---
 
 ## ⚙️ Features
